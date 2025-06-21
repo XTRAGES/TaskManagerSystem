@@ -1,6 +1,6 @@
 # Task Manager System
 
-This project demonstrates a hybrid Task Manager system with a Node.js backend (REST API) and a pure PHP frontend, secured using JSON Web Tokens (JWT).
+This project demonstrates a hybrid Task Manager system with a Node.js backend (REST API) and a PHP frontend, secured using JSON Web Tokens (JWT).
 
 ## Features
 
