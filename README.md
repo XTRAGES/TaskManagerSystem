@@ -58,7 +58,8 @@ Before you begin, ensure you have the following installed on your system:
 
 ## Setup and Installation
 
-1.  **Clone the repository https://github.com/XTRAGES/TaskManagerSystem.git**
+1.  **Clone the repository
+2.  https://github.com/XTRAGES/TaskManagerSystem.git**
     ```bash
 cd TaskManagerSystem
     ```
