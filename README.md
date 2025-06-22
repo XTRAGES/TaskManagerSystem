@@ -58,10 +58,9 @@ Before you begin, ensure you have the following installed on your system:
 
 ## Setup and Installation
 
-1.  **Clone the repository**
-    ```https://github.com/XTRAGES/TaskManagerSystem.git```bash
+git clone https://github.com/XTRAGES/TaskManagerSystem.git
 cd TaskManagerSystem
-    ```
+
 
 2.  **Backend Setup:**
     Navigate into the `node-api` directory and install the required Node.js packages:
