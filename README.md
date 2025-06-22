@@ -1,36 +1,47 @@
-# Task Manager System
+Task Manager System
+A hybrid Task Manager system featuring a Node.js REST API backend and a pure PHP frontend, secured via JSON Web Tokens (JWT). This project demonstrates full-stack development without using heavy frameworks, focusing on simplicity, clarity, and core functionality.
 
-This project demonstrates a hybrid Task Manager system with a Node.js backend (REST API) and a PHP frontend, secured using JSON Web Tokens (JWT).
+🛠️ Features
+User Authentication:
+Secure login with username & password returning a JWT token.
 
-## Features
+Task Management:
+View tasks
 
-*   **User Authentication:** Secure login using username and password, returning a JWT token.
-*   **Task Management:**
-    *   View a list of tasks.
-    *   Create new tasks.
-    *   Delete existing tasks.
-*   **Protected Routes:** All task-related API endpoints are protected by JWT authentication.
-*   **CORS Enabled:** The Node.js backend is configured to allow cross-origin requests from the PHP frontend.
+Create new tasks
 
-## Technologies Used
+Delete existing tasks
 
-*   **Backend API:**
-    *   Node.js
-    *   Express.js (web framework)
-    *   jsonwebtoken (for JWT creation and verification)
-    *   body-parser (for parsing request bodies)
-    *   cors (for Cross-Origin Resource Sharing)
-    *   Data Storage: In-memory JavaScript array (for simplicity, no database required).
+Protected API Routes:
+All task endpoints require valid JWT authentication.
 
-*   **Frontend:**
-    *   PHP (pure PHP, no frameworks)
-    *   cURL (for making HTTP requests to the Node.js API)
-    *   HTML for page rendering
-    *   PHP sessions (for storing the JWT token)
+CORS Enabled:
+Allows the PHP frontend to communicate seamlessly with the Node.js backend.
 
-## Folder Structure
+⚙️ Technologies Used
+🔗 Backend (Node.js REST API)
+Node.js
 
-```
+Express.js
+
+JSON Web Tokens (jsonwebtoken)
+
+CORS (cors)
+
+Body Parsing (body-parser)
+
+Data stored in-memory (no external database)
+
+💻 Frontend (PHP)
+Pure PHP (no frameworks)
+
+cURL (to make HTTP requests)
+
+PHP Sessions (to store the JWT)
+
+HTML (page rendering)
+
+📁 Folder Structure
 /TaskManagerSystem
 ├── node-api/
 │   ├── server.js
@@ -39,83 +50,111 @@ This project demonstrates a hybrid Task Manager system with a Node.js backend (R
 ├── php-frontend/
 │   ├── index.php
 │   ├── tasks.php
-│   ├── add_task.php (removed, functionality moved to tasks.php)
 │   ├── delete_task.php
-│   └── logout.php
+│   ├── logout.php
 ├── README.md
 └── package-lock.json
-```
 
-## Prerequisites
+🔧 Prerequisites
+Ensure the following are installed on your system:
 
-Before you begin, ensure you have the following installed on your system:
+Node.js & npm:
 
-*   **Node.js and npm:**
-    *   Download from [nodejs.org](https://nodejs.org/)
-*   **PHP:**
-    *   Download from [php.net](https://www.php.net/downloads.php)
-    *   Ensure PHP is configured with `php-curl` extension enabled for cURL functionality.
+Download here
 
-## Setup and Installation
+PHP (v7.x or later):
 
-git clone https://github.com/XTRAGES/TaskManagerSystem.git
+Download here
+
+Ensure the php-curl extension is enabled.
+
+🚀 Setup and Installation
+1. Clone the Repository
+https://github.com/XTRAGES/TaskManagerSystem.git
 cd TaskManagerSystem
 
+2. Backend Setup
+Navigate to the Node.js backend folder and install dependencies:
 
-2.  **Backend Setup:**
-    Navigate into the `node-api` directory and install the required Node.js packages:
-    ```bash
-    cd TaskManagerSystem/node-api
-    npm install
-    ```
+cd node-api
+npm install
 
-## Running the Application
+3. Frontend Setup
+No package installation is required. Ensure PHP with php-curl is properly set up.
 
-To run the full Task Manager system, you need to start both the Node.js backend and the PHP frontend separately.
+🏃 Running the Application
+1. Start the Node.js Backend
+In one terminal:
 
-1.  **Start the Node.js Backend:**
-    Open a terminal and navigate to the `node-api` directory:
-    ```bash
-cd TaskManagerSystem/node-api
-    node server.js
-    ```
-    You should see the message `Server listening at http://localhost:3000` in your terminal. Keep this terminal running.
+cd node-api
+node server.js
 
-2.  **Start the PHP Frontend:**
-    Open a *new, separate* terminal and navigate to the `php-frontend` directory:
-    ```bash
-cd TaskManagerSystem/php-frontend
-    php -S localhost:8000
-    ```
-    This will start PHP's built-in web server. Keep this terminal running.
+Expected output:
 
-3.  **Access the Application in your Browser:**
-    Open your web browser and go to:
-    `http://localhost:8000/index.php`
+Server listening at http://localhost:3000
 
-## Usage
+2. Start the PHP Frontend
+In a new terminal:
 
-1.  **Login:**
-    On the `index.php` page, you will find a login form. Use the following credentials:
-    *   **Username:** `admin`
-    *   **Password:** `password`
-    Click "Login". If successful, you will be redirected to `tasks.php`.
+cd php-frontend
+php -S localhost:8000
 
-2.  **View Tasks:**
-    The `tasks.php` page will display a list of tasks fetched from the Node.js API. Initially, this list will be empty.
+3. Access the App
+Open your browser at:
 
-3.  **Add a New Task:**
-    On the `tasks.php` page, there is a form to add new tasks. Enter a title for your task and click "Add Task". The page will refresh, and your new task should appear in the list.
+👉 http://localhost:8000/index.php
 
-4.  **Delete a Task:**
-    Next to each task in the list on `tasks.php`, there is a "Delete" link. Clicking this link will send a DELETE request to the Node.js API to remove the task. The page will refresh, and the task will be gone.
+💡 Usage Guide
+Login:
+Username: admin
 
-5.  **Logout:**
-    Click the "Logout" link on the `tasks.php` page to clear your session and return to the login page.
+Password: password
 
-## Authentication Details
+View Tasks:
+Tasks will be displayed on tasks.php.
 
-*   **JWT Generation:** Upon successful login, the Node.js backend generates a JWT using `jsonwebtoken` and sends it back to the PHP frontend.
-*   **Token Storage:** The PHP frontend stores this JWT in the user's session (`$_SESSION['token']`).
-*   **Protected API Calls:** For all subsequent requests to protected API routes (`/tasks` GET/POST, `/tasks/:id` DELETE), the PHP frontend includes the JWT in the `Authorization: Bearer <token>` header using cURL.
-*   **Token Verification:** The Node.js backend's `verifyToken` middleware intercepts these requests, verifies the JWT, and grants access only if the token is valid.
+Add Task:
+Enter a task title and click "Add Task".
+
+Delete Task:
+Click "Delete" next to a task.
+
+Logout:
+Click "Logout" to end your session.
+
+🔐 Authentication Details
+JWT Token: Generated on successful login in Node.js backend.
+
+Token Storage: Stored in PHP session ($_SESSION['token']).
+
+API Requests: PHP sends JWT in Authorization: Bearer <token> header.
+
+Token Verification: Node.js checks token validity before granting access.
+
+❗ Security Notes
+JWT used for route protection.
+
+CORS properly configured.
+
+PHP cURL securely handles API requests.
+
+Sessions manage frontend security.
+
+📌 Future Improvements (Optional)
+Persistent database (MongoDB or MySQL)
+
+User registration system
+
+Task update feature (PUT method)
+
+Dockerize both services
+
+Token expiry handling
+
+📝 License
+This project is licensed under the Proprietary License.
+
+For usage requests, contact: aldinzendeli33@gmail.com
+
+👨‍💻 Author
+Aldin Zendeli — XTRAGES on GitHub
