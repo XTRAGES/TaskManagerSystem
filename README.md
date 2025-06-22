@@ -1,47 +1,40 @@
-Task Manager System
+# 🗂️ Task Manager System
+
 A hybrid Task Manager system featuring a Node.js REST API backend and a pure PHP frontend, secured via JSON Web Tokens (JWT). This project demonstrates full-stack development without using heavy frameworks, focusing on simplicity, clarity, and core functionality.
 
-🛠️ Features
-User Authentication:
-Secure login with username & password returning a JWT token.
+## ✨ Features
 
-Task Management:
-View tasks
+### Customer Features
+-   **User Authentication:** Secure login with username & password returning a JWT token.
+-   **Task Management:**
+    -   **View tasks**
+    -   **Create new tasks**
+    -   **Delete existing tasks**
 
-Create new tasks
+### Admin Features
+-   **Protected API Routes:** All task endpoints require valid JWT authentication.
+-   **CORS Enabled:** Allows the PHP frontend to communicate seamlessly with the Node.js backend.
 
-Delete existing tasks
+## 🛠️ Technologies Used
 
-Protected API Routes:
-All task endpoints require valid JWT authentication.
+### 💻 Frontend (PHP)
+*   **Pure PHP (no frameworks)**
+*   **cURL (to make HTTP requests)**
+*   **PHP Sessions (to store the JWT)**
+*   **HTML (page rendering)**
 
-CORS Enabled:
-Allows the PHP frontend to communicate seamlessly with the Node.js backend.
+### 🔗 Backend (Node.js REST API)
+*   **Node.js**
+*   **Express.js**
+*   **JSON Web Tokens (jsonwebtoken)**
+*   **CORS (cors)**
+*   **Body Parsing (body-parser)**
+*   **Data stored in-memory (no external database)**
 
-⚙️ Technologies Used
-🔗 Backend (Node.js REST API)
-Node.js
 
-Express.js
+## 📁 Folder Structure
 
-JSON Web Tokens (jsonwebtoken)
-
-CORS (cors)
-
-Body Parsing (body-parser)
-
-Data stored in-memory (no external database)
-
-💻 Frontend (PHP)
-Pure PHP (no frameworks)
-
-cURL (to make HTTP requests)
-
-PHP Sessions (to store the JWT)
-
-HTML (page rendering)
-
-📁 Folder Structure
+```
 /TaskManagerSystem
 ├── node-api/
 │   ├── server.js
@@ -51,110 +44,136 @@ HTML (page rendering)
 │   ├── index.php
 │   ├── tasks.php
 │   ├── delete_task.php
-│   ├── logout.php
+│   └── logout.php
 ├── README.md
 └── package-lock.json
+```
 
-🔧 Prerequisites
+## 🔧 Prerequisites
+
 Ensure the following are installed on your system:
 
-Node.js & npm:
+*   **Node.js & npm:**
+    *   Download here: \[nodejs.org](https://nodejs.org/)
+*   **PHP (v7.x or later):**
+    *   Download here: \[php.net](https://www.php.net/downloads.php)
+    *   Ensure the php-curl extension is enabled.
 
-Download here
+## 🚀 Setup and Installation
 
-PHP (v7.x or later):
+1.  **Clone the Repository**
 
-Download here
+    ```bash
+    git clone https://github.com/XTRAGES/TaskManagerSystem.git
+    cd TaskManagerSystem
+    ```
 
-Ensure the php-curl extension is enabled.
+2.  **Backend Setup**
 
-🚀 Setup and Installation
-1. Clone the Repository
-https://github.com/XTRAGES/TaskManagerSystem.git
-cd TaskManagerSystem
+    Navigate to the Node.js backend folder and install dependencies:
 
-2. Backend Setup
-Navigate to the Node.js backend folder and install dependencies:
+    ```bash
+    cd node-api
+    npm install
+    ```
 
-cd node-api
-npm install
+3.  **Frontend Setup**
 
-3. Frontend Setup
-No package installation is required. Ensure PHP with php-curl is properly set up.
+    No package installation is required. Ensure PHP with php-curl is properly set up.
 
-🏃 Running the Application
-1. Start the Node.js Backend
-In one terminal:
+## 🏃 Running the Application
 
-cd node-api
-node server.js
+1.  **Start the Node.js Backend**
 
-Expected output:
+    In one terminal:
 
-Server listening at http://localhost:3000
+    ```bash
+    cd node-api
+    node server.js
+    ```
 
-2. Start the PHP Frontend
-In a new terminal:
+    Expected output:
 
-cd php-frontend
-php -S localhost:8000
+    ```
+    Server listening at http://localhost:3000
+    ```
 
-3. Access the App
-Open your browser at:
+2.  **Start the PHP Frontend**
 
-👉 http://localhost:8000/index.php
+    In a new terminal:
 
-💡 Usage Guide
-Login:
-Username: admin
+    ```bash
+    cd php-frontend
+    php -S localhost:8000
+    ```
 
-Password: password
+3.  **Access the App**
 
-View Tasks:
+    Open your browser at:
+
+    👉 http://localhost:8000/index.php
+
+## 💡 Usage Guide
+
+**Login:**
+
+*   **Username:** admin
+*   **Password:** password
+
+**View Tasks:**
+
 Tasks will be displayed on tasks.php.
 
-Add Task:
+**Add Task:**
+
 Enter a task title and click "Add Task".
 
-Delete Task:
+**Delete Task:**
+
 Click "Delete" next to a task.
 
-Logout:
+**Logout:**
+
 Click "Logout" to end your session.
 
-🔐 Authentication Details
-JWT Token: Generated on successful login in Node.js backend.
+## 🔐 Authentication Details
 
-Token Storage: Stored in PHP session ($_SESSION['token']).
+*   **JWT Token:** Generated on successful login in Node.js backend.
+*   **Token Storage:** Stored in PHP session (\_SESSION['token']).
+*   **API Requests:** PHP sends JWT in `Authorization: Bearer <token>` header.
+*   **Token Verification:** Node.js checks token validity before granting access.
 
-API Requests: PHP sends JWT in Authorization: Bearer <token> header.
+## ❗ Security Notes
 
-Token Verification: Node.js checks token validity before granting access.
+*   JWT used for route protection.
+*   CORS properly configured.
+*   PHP cURL securely handles API requests.
+*   Sessions manage frontend security.
 
-❗ Security Notes
-JWT used for route protection.
+## 📌 Future Improvements (Optional)
 
-CORS properly configured.
+*   Persistent database (MongoDB or MySQL)
+*   User registration system
+*   Task update feature (PUT method)
+*   Dockerize both services
+*   Token expiry handling
 
-PHP cURL securely handles API requests.
+## 📝 License
 
-Sessions manage frontend security.
+This project is licensed under a **Proprietary License**.
 
-📌 Future Improvements (Optional)
-Persistent database (MongoDB or MySQL)
+It is intended for **personal use, educational purposes, and portfolio demonstration only**.
+**Commercial use, distribution, modification, or resale is strictly prohibited without explicit written permission from the author.**
 
-User registration system
+See the [LICENSE](./LICENSE) file for full license details.
 
-Task update feature (PUT method)
+## 📞 Support
 
-Dockerize both services
+For support and questions:
 
-Token expiry handling
+*   Create an issue on GitHub
+*   Email: aldinzendeli33@gmail.com
 
-📝 License
-This project is licensed under the Proprietary License.
+## 👨‍💻 Author
 
-For usage requests, contact: aldinzendeli33@gmail.com
-
-👨‍💻 Author
 Aldin Zendeli — XTRAGES on GitHub
