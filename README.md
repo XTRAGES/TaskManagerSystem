@@ -150,13 +150,6 @@ Click "Logout" to end your session.
 *   PHP cURL securely handles API requests.
 *   Sessions manage frontend security.
 
-## 📌 Future Improvements (Optional)
-
-*   Persistent database (MongoDB or MySQL)
-*   User registration system
-*   Task update feature (PUT method)
-*   Dockerize both services
-*   Token expiry handling
 
 ## 📝 License
 
